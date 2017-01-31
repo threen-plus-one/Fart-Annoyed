@@ -16,4 +16,6 @@ public:
 	RectF( const Vec2& topleft,float width,float height );
 
 	bool Intersects( const RectF& other ) const;
+
+	static RectF FromCentre( const Vec2& centre,float halfWidth,float halfHeight );
 };

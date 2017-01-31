@@ -29,3 +29,9 @@ bool RectF::Intersects( const RectF& other ) const
 		bottom > other.top &&
 		top < other.bottom;
 }
+
+RectF RectF::FromCentre( const Vec2& centre,float halfWidth,float halfHeight )
+{
+	const Vec2 half( halfWidth,halfHeight );
+	return RectF( centre - half,centre + half );
+}
