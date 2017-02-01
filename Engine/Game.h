@@ -51,5 +51,6 @@ private:
 	Ball ball;
 
 	Sound soundPad;
+	Sound soundBrick;
 	/********************************/
 };
