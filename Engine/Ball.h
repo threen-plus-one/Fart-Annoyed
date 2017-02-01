@@ -13,8 +13,13 @@ class Ball
 
 public:
 	Ball( const Vec2& pos,const Vec2& vel );
+	
 	void Update( float dt );
 	void Draw( Graphics& gfx ) const;
+
+	bool DoWallCollision( const RectF& walls );
+	void ReboundX();
+	void ReboundY();
 
 	RectF GetBounds() const;
 };
