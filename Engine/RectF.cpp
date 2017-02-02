@@ -32,7 +32,7 @@ bool RectF::Intersects( const RectF& other ) const
 
 RectF RectF::GetExpanded( float magnitude ) const
 {
-	return RectF( top - magnitude / 2,bottom + magnitude,left - magnitude / 2, right + magnitude );
+	return RectF( top - magnitude,bottom + magnitude,left - magnitude,right + magnitude );
 }
 
 RectF& RectF::Expand( float magnitude )
