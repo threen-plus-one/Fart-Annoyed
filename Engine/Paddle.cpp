@@ -24,6 +24,9 @@ void Paddle::Update( Keyboard& kbd,float dt )
 void Paddle::Draw( Graphics& gfx ) const
 {
 	RectF rect = GetBounds();
+	gfx.DrawRect( rect,wingColor );
+	rect.left += WING_WIDTH;
+	rect.right -= WING_WIDTH;
 	gfx.DrawRect( rect,color );
 }
 
