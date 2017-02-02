@@ -32,7 +32,8 @@ void Paddle::Draw( Graphics& gfx ) const
 
 bool Paddle::DoBallCollision( Ball& ball ) const
 {
-	if( GetBounds().Intersects( ball.GetBounds ) )
+	// you were doing ball.GetBounds instead of ball.GetBounds()
+	if( GetBounds().Intersects( ball.GetBounds() ) )
 	{
 		ball.ReboundY();
 		return true;
