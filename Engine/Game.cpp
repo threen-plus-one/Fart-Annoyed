@@ -90,8 +90,11 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	ball.Draw( gfx );
+	
 	for( const Brick& b : bricks )
 	{
 		b.Draw( gfx );
 	}
+
+	pad.Draw( gfx );
 }
