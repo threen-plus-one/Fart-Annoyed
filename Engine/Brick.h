@@ -13,8 +13,10 @@ class Brick
 	bool destroyed = false;
 
 public:
+	Brick() = default;
 	Brick( const RectF& rect,Color color );
-	void Draw( Graphics& gfx ) const;
 
 	bool DoBallCollision( Ball& ball );
+
+	void Draw( Graphics& gfx ) const;
 };

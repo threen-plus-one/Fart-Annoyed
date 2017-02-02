@@ -30,6 +30,24 @@ Game::Game( MainWindow& wnd )
 	soundPad( L"Sounds\\arkpad.wav" ),
 	soundBrick( L"Sounds\\arkbrick.wav" )
 {
+	const Vec2 topLeft( 40.0f,40.0f );
+	const Color colors[ BRICKS_DOWN ] = {
+		Colors::Red,
+		Colors::Green,
+		Colors::Blue,
+		Colors::Cyan
+	};
+
+	int i = 0;
+	for( int y = 0; y < BRICKS_DOWN; ++y )
+	{
+		for( int x = 0; x < BRICKS_ACROSS; ++x )
+		{
+			const Vec2 brickTopLeft = topLeft + Vec2( float( x ) * BRICK_WIDTH,float( y ) * BRICK_HEIGHT );
+			bricks[ i ] = Brick( RectF( brickTopLeft,BRICK_WIDTH,BRICK_HEIGHT ),colors[ y ] );
+			++i;
+		}
+	}
 }
 
 void Game::Go()
@@ -49,9 +67,22 @@ void Game::UpdateModel()
 	{
 		soundPad.Play();
 	}
+
+	for( Brick& b : bricks )
+	{
+		if( b.DoBallCollision( ball ) )
+		{
+			soundBrick.Play();
+			return;
+		}
+	}
 }
 
 void Game::ComposeFrame()
 {
 	ball.Draw( gfx );
+	for( const Brick& b : bricks )
+	{
+		b.Draw( gfx );
+	}
 }

@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "FrameTimer.h"
 #include "Ball.h"
+#include "Brick.h"
 #include "Sound.h"
 
 class Game
@@ -45,10 +46,18 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	static constexpr int BRICKS_ACROSS = 18;
+	static constexpr int BRICKS_DOWN = 4;
+	static constexpr int NUM_BRICKS = BRICKS_ACROSS * BRICKS_DOWN;
+
+	static constexpr float BRICK_WIDTH = 40.0f;
+	static constexpr float BRICK_HEIGHT = 24.0f;
+
 	FrameTimer ft;
 	
 	RectF walls;
 	Ball ball;
+	Brick bricks[ NUM_BRICKS ];
 
 	Sound soundPad;
 	Sound soundBrick;
