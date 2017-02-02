@@ -22,4 +22,5 @@ public:
 	void ReboundY();
 
 	RectF GetBounds() const;
+	const Vec2& GetVelocity() const;
 };
