@@ -30,6 +30,16 @@ bool RectF::Intersects( const RectF& other ) const
 		top < other.bottom;
 }
 
+RectF RectF::GetExpanded( float magnitude ) const
+{
+	return RectF( top - magnitude / 2,bottom + magnitude,left - magnitude / 2, right + magnitude );
+}
+
+RectF& RectF::Expand( float magnitude )
+{
+	return *this = GetExpanded( magnitude );
+}
+
 RectF RectF::FromCentre( const Vec2& centre,float halfWidth,float halfHeight )
 {
 	const Vec2 half( halfWidth,halfHeight );

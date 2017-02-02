@@ -7,6 +7,8 @@
 
 class Brick
 {
+	static constexpr float GRID_PADDING = 1.0f;
+
 	RectF rect;
 	Color color;
 
