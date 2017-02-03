@@ -18,6 +18,7 @@ public:
 	bool Intersects( const RectF& other ) const;
 	RectF GetExpanded( float magnitude ) const;
 	RectF& Expand( float magnitude );
+	Vec2 GetCentre() const;
 
 	static RectF FromCentre( const Vec2& centre,float halfWidth,float halfHeight );
 };

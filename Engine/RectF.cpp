@@ -40,6 +40,11 @@ RectF& RectF::Expand( float magnitude )
 	return *this = GetExpanded( magnitude );
 }
 
+Vec2 RectF::GetCentre() const
+{
+	return Vec2( (left + right) / 2,(top + bottom) / 2);
+}
+
 RectF RectF::FromCentre( const Vec2& centre,float halfWidth,float halfHeight )
 {
 	const Vec2 half( halfWidth,halfHeight );
