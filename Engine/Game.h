@@ -38,7 +38,7 @@ public:
 	void Go();
 private:
 	void ComposeFrame();
-	void UpdateModel();
+	void UpdateModel( float dt );
 	/********************************/
 	/*  User Functions              */
 	void DoBrickCollision();
@@ -48,6 +48,8 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	static constexpr float TIMESTEP = 0.0025f;
+
 	static constexpr int BRICKS_ACROSS = 18;
 	static constexpr int BRICKS_DOWN = 4;
 	static constexpr int NUM_BRICKS = BRICKS_ACROSS * BRICKS_DOWN;
