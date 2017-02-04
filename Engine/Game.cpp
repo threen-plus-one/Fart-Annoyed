@@ -91,15 +91,16 @@ void Game::DoBrickCollision()
 		if( bricks[ i ].CheckBallCollision( ball ) )
 		{
 			const Vec2 brickCentre = bricks[ i ].GetBounds().GetCentre();
+			const float distSq = (ballPos - brickCentre).GetLengthSq();
 
 			if( !collided )
 			{
 				indexClosest = i;
-				leastDistSq = (ballPos - brickCentre).GetLengthSq();
+				leastDistSq = distSq;
+				collided = true;
 			}
 			else
 			{
-				const float distSq = (ballPos - brickCentre).GetLengthSq();
 				if( distSq < leastDistSq )
 				{
 					indexClosest = i;
