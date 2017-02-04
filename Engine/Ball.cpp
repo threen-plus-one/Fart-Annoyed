@@ -68,6 +68,11 @@ RectF Ball::GetBounds() const
 	return RectF::FromCentre( pos,RADIUS,RADIUS );
 }
 
+const Vec2& Ball::GetPosition() const
+{
+	return pos;
+}
+
 const Vec2& Ball::GetVelocity() const
 {
 	return vel;

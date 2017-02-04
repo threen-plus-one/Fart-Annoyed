@@ -77,13 +77,42 @@ void Game::UpdateModel()
 		soundPad.Play();
 	}
 
-	for( Brick& b : bricks )
+	DoBrickCollision();
+}
+
+void Game::DoBrickCollision()
+{
+	bool collided = false;
+	float leastDistSq;
+	int indexClosest;
+	const Vec2 ballPos = ball.GetPosition();
+	for( int i = 0; i < NUM_BRICKS; ++i )
 	{
-		if( b.DoBallCollision( ball ) )
+		if( bricks[ i ].CheckBallCollision( ball ) )
 		{
-			soundBrick.Play();
-			return;
+			const Vec2 brickCentre = bricks[ i ].GetBounds().GetCentre();
+
+			if( !collided )
+			{
+				indexClosest = i;
+				leastDistSq = (ballPos - brickCentre).GetLengthSq();
+			}
+			else
+			{
+				const float distSq = (ballPos - brickCentre).GetLengthSq();
+				if( distSq < leastDistSq )
+				{
+					indexClosest = i;
+					leastDistSq = distSq;
+				}
+			}
 		}
+	}
+
+	if( collided )
+	{
+		bricks[ indexClosest ].ExcecuteBallCollision( ball );
+		soundBrick.Play();
 	}
 }
 

@@ -18,7 +18,10 @@ public:
 	Brick() = default;
 	Brick( const RectF& rect,Color color );
 
-	bool DoBallCollision( Ball& ball );
+	bool CheckBallCollision( const Ball& ball ) const;
+	void ExcecuteBallCollision( Ball& ball );
 
 	void Draw( Graphics& gfx ) const;
+
+	const RectF& GetBounds() const;
 };

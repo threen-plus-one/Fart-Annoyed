@@ -41,6 +41,7 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+	void DoBrickCollision();
 	/********************************/
 private:
 	MainWindow& wnd;
