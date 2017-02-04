@@ -15,6 +15,8 @@ class Paddle
 	float halfWidth;
 	float halfHeight;
 
+	bool collisionCooldown = false;
+
 	Color color = Colors::White;
 	Color wingColor = Colors::Red;
 
@@ -24,8 +26,9 @@ public:
 	void Update( Keyboard& kbd,float dt );
 	void Draw( Graphics& gfx ) const;
 
-	bool DoBallCollision( Ball& ball ) const;
+	bool DoBallCollision( Ball& ball );
 	void DoWallCollision( const RectF& walls );
+	void ResetCooldown();
 
 	RectF GetBounds() const;
 };

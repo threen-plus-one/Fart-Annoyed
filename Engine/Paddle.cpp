@@ -30,14 +30,29 @@ void Paddle::Draw( Graphics& gfx ) const
 	gfx.DrawRect( rect,color );
 }
 
-bool Paddle::DoBallCollision( Ball& ball ) const
+bool Paddle::DoBallCollision( Ball& ball )
 {
-	if( ball.GetVelocity().y > 0 )
+	if( !collisionCooldown )
 	{
-		// you were doing ball.GetBounds instead of ball.GetBounds()
-		if( GetBounds().Intersects( ball.GetBounds() ) )
+		const Vec2 ballPos = ball.GetPosition();
+		const RectF rect = GetBounds();
+
+		if( rect.Intersects( ball.GetBounds() ) )
 		{
-			ball.ReboundY();
+			if( std::signbit( ball.GetVelocity().x ) == std::signbit( (ballPos - rect.GetCentre()).x ) )
+			{
+				ball.ReboundY();
+			}
+			else if( ballPos.x >= rect.left && ballPos.x <= rect.right )
+			{
+				ball.ReboundY();
+			}
+			else
+			{
+				ball.ReboundX();
+			}
+
+			collisionCooldown = true;
 			return true;
 		}
 	}
@@ -57,6 +72,11 @@ void Paddle::DoWallCollision( const RectF& walls )
 	{
 		pos.x -= rect.right - walls.right;
 	}
+}
+
+void Paddle::ResetCooldown()
+{
+	collisionCooldown = false;
 }
 
 RectF Paddle::GetBounds() const

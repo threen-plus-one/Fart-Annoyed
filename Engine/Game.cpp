@@ -69,6 +69,7 @@ void Game::UpdateModel()
 	if( ball.DoWallCollision( walls ) )
 	{
 		soundPad.Play();
+		pad.ResetCooldown();
 	}
 
 	pad.DoWallCollision( walls );
@@ -114,6 +115,7 @@ void Game::DoBrickCollision()
 	{
 		bricks[ indexClosest ].ExcecuteBallCollision( ball );
 		soundBrick.Play();
+		pad.ResetCooldown();
 	}
 }
 
