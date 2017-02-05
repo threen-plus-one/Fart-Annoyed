@@ -7,6 +7,7 @@
 class Ball
 {
 	static constexpr float RADIUS = 7.0f;
+	static constexpr float SPEED = 400.0f;
 
 	Vec2 pos;
 	Vec2 vel;
@@ -20,6 +21,7 @@ public:
 	bool DoWallCollision( const RectF& walls );
 	void ReboundX();
 	void ReboundY();
+	void ReboundYPad( const Vec2& padCentre );
 
 	RectF GetBounds() const;
 	const Vec2& GetPosition() const;

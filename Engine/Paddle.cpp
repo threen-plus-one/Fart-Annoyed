@@ -41,11 +41,11 @@ bool Paddle::DoBallCollision( Ball& ball )
 		{
 			if( std::signbit( ball.GetVelocity().x ) == std::signbit( (ballPos - rect.GetCentre()).x ) )
 			{
-				ball.ReboundY();
+				ball.ReboundYPad( rect.GetCentre() );
 			}
 			else if( ballPos.x >= rect.left && ballPos.x <= rect.right )
 			{
-				ball.ReboundY();
+				ball.ReboundYPad( rect.GetCentre() );
 			}
 			else
 			{

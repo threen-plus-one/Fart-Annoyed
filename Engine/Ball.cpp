@@ -4,7 +4,7 @@
 Ball::Ball( const Vec2& pos_in,const Vec2& vel_in )
 	:
 	pos( pos_in ),
-	vel( vel_in )
+	vel( vel_in.GetNormalized() * SPEED )
 {
 }
 
@@ -61,6 +61,13 @@ void Ball::ReboundX()
 void Ball::ReboundY()
 {
 	vel.y = -vel.y;
+}
+
+void Ball::ReboundYPad( const Vec2& padCentre )
+{
+	vel.x = ( pos.x - padCentre.x ) * 0.05f;
+	vel.y = -1.0f;
+	vel.Normalize() *= SPEED;
 }
 
 RectF Ball::GetBounds() const
