@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	walls( Vec2( 0.0f,0.0f ),Vec2( 799.0f,599.0f ) ),
+	walls( Vec2( 40.0f,40.0f ),Vec2( 759.0f,559.0f ) ),
 	ball( Vec2( 400.0f,400.0f ),Vec2( 1.0f,1.0f ) ),
 	pad( Vec2( 400.0f,500.0f ),50.0f,7.0f ),
 	soundPad( L"Sounds\\arkpad.wav" ),
@@ -125,6 +125,9 @@ void Game::DoBrickCollision()
 
 void Game::ComposeFrame()
 {
+	gfx.DrawRect( 0,0,int( Graphics::ScreenWidth - 1 ),int( Graphics::ScreenHeight - 1 ),borderColor );
+	gfx.DrawRect( walls,Colors::Black );
+
 	ball.Draw( gfx );
 	
 	for( const Brick& b : bricks )

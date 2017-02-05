@@ -57,6 +57,8 @@ private:
 	static constexpr float BRICK_WIDTH = 40.0f;
 	static constexpr float BRICK_HEIGHT = 24.0f;
 
+	Color borderColor = Colors::MakeRGB( 0u,0u,127u );
+
 	FrameTimer ft;
 	
 	RectF walls;
