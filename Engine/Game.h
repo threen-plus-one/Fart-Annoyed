@@ -59,6 +59,8 @@ private:
 
 	Color borderColor = Colors::MakeRGB( 0u,0u,127u );
 
+	bool gameOver = false;
+
 	FrameTimer ft;
 	
 	RectF walls;
