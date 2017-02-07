@@ -336,6 +336,31 @@ void Graphics::FillRect( int x0,int y0,int x1,int y1,Color c )
 	}
 }
 
+void Graphics::DrawRect( int x0,int y0,int x1,int y1,Color c )
+{
+	if( x1 < x0 )
+	{
+		std::swap( x1,x0 );
+	}
+
+	if( y1 < y0 )
+	{
+		std::swap( y1,y0 );
+	}
+
+	for( int xx = x0; xx < x1; ++xx )
+	{
+		PutPixel( xx,y0,c );
+		PutPixel( xx,y1,c );
+	}
+
+	for( int yy = y0 + 1; yy < y1 - 1; ++yy )
+	{
+		PutPixel( x0,yy,c );
+		PutPixel( x1,yy,c );
+	}
+}
+
 void Graphics::FillCircle( int x,int y,int radius,Color c )
 {
 	const int rad_sq = radius * radius;

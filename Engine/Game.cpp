@@ -127,8 +127,9 @@ void Game::DoBrickCollision()
 
 void Game::ComposeFrame()
 {
-	gfx.FillRect( 0,0,int( Graphics::ScreenWidth - 1 ),int( Graphics::ScreenHeight - 1 ),borderColor );
-	gfx.FillRect( walls,Colors::Black );
+	/*gfx.FillRect( 0,0,int( Graphics::ScreenWidth - 1 ),int( Graphics::ScreenHeight - 1 ),borderColor );
+	gfx.FillRect( walls,Colors::Black );*/
+	gfx.DrawRect( walls,borderColor );
 
 	ball.Draw( gfx );
 	

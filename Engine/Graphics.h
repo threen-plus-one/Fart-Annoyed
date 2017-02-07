@@ -62,6 +62,11 @@ public:
 	{
 		FillRect( int( rect.left ),int( rect.top ),int( rect.right ),int( rect.bottom ),c );
 	}
+	void DrawRect( int x0,int y0,int x1,int y1,Color c );
+	void DrawRect( const RectF& rect,Color c )
+	{
+		DrawRect( int( rect.left ),int( rect.top ),int( rect.right ),int( rect.bottom ),c );
+	}
 	void FillCircle( int x,int y,int radius,Color c );
 	~Graphics();
 private:
