@@ -38,7 +38,7 @@ void Brick::Draw( Graphics& gfx ) const
 {
 	if( !destroyed )
 	{
-		gfx.DrawRect( rect.GetExpanded( -GRID_PADDING ),color );
+		gfx.FillRect( rect.GetExpanded( -GRID_PADDING ),color );
 	}
 }
 

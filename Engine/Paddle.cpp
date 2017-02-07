@@ -24,10 +24,10 @@ void Paddle::Update( Keyboard& kbd,float dt )
 void Paddle::Draw( Graphics& gfx ) const
 {
 	RectF rect = GetBounds();
-	gfx.DrawRect( rect,wingColor );
+	gfx.FillRect( rect,wingColor );
 	rect.left += WING_WIDTH;
 	rect.right -= WING_WIDTH;
-	gfx.DrawRect( rect,color );
+	gfx.FillRect( rect,color );
 }
 
 bool Paddle::DoBallCollision( Ball& ball )

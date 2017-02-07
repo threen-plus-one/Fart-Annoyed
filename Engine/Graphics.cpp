@@ -316,7 +316,7 @@ void Graphics::PutPixel( int x,int y,Color c )
 	pSysBuffer[Graphics::ScreenWidth * y + x] = c;
 }
 
-void Graphics::DrawRect( int x0,int y0,int x1,int y1,Color c )
+void Graphics::FillRect( int x0,int y0,int x1,int y1,Color c )
 {
 	if( x0 > x1 )
 	{
@@ -336,7 +336,7 @@ void Graphics::DrawRect( int x0,int y0,int x1,int y1,Color c )
 	}
 }
 
-void Graphics::DrawCircle( int x,int y,int radius,Color c )
+void Graphics::FillCircle( int x,int y,int radius,Color c )
 {
 	const int rad_sq = radius * radius;
 	for( int y_loop = y - radius + 1; y_loop < y + radius; y_loop++ )

@@ -57,12 +57,12 @@ public:
 		PutPixel( x,y,{ unsigned char( r ),unsigned char( g ),unsigned char( b ) } );
 	}
 	void PutPixel( int x,int y,Color c );
-	void DrawRect( int x0,int y0,int x1,int y1,Color c );
-	void DrawRect( const RectF& rect,Color c )
+	void FillRect( int x0,int y0,int x1,int y1,Color c );
+	void FillRect( const RectF& rect,Color c )
 	{
-		DrawRect( int( rect.left ),int( rect.top ),int( rect.right ),int( rect.bottom ),c );
+		FillRect( int( rect.left ),int( rect.top ),int( rect.right ),int( rect.bottom ),c );
 	}
-	void DrawCircle( int x,int y,int radius,Color c );
+	void FillCircle( int x,int y,int radius,Color c );
 	~Graphics();
 private:
 	Microsoft::WRL::ComPtr<IDXGISwapChain>				pSwapChain;
